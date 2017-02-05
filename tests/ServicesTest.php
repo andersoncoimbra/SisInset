@@ -25,6 +25,9 @@ class ServicesTest extends TestCase
         $service = new \App\Service();
         $service->id_cliente = $cliente->id;
         $service->service = 'Serviço do Test';
+        $service->data = date('Y-m-d', strtotime(str_replace('/','-','10/08/2016')));
+        $service->reforco = date('Y-m-d', strtotime(str_replace('/','-','10/01/2017')));
+        $service->vencimento = date('Y-m-d', strtotime(str_replace('/','-','10/02/2017')));
         $service->notafiscal = '1000';
         $service->save();
 

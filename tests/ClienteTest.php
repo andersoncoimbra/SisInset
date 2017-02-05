@@ -14,6 +14,14 @@ class ClienteTest extends TestCase
      *
      * @return void
      */
+    public function testNovoClienteDashboard()
+    {
+        $this->visit('/home')
+            ->click('Novo Cliente')
+            ->see('Novo Cliente');
+    }
+
+
     public function testNovoClienteForm()
     {
         $this->visit('/novocliente')
