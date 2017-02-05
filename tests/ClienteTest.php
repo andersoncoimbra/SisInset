@@ -14,7 +14,7 @@ class ClienteTest extends TestCase
      *
      * @return void
      */
-    public function testNovoCliente()
+    public function testNovoClienteForm()
     {
         $this->visit('/novocliente')
             ->see('Novo Cliente')
@@ -38,5 +38,17 @@ class ClienteTest extends TestCase
         $this->seeInDatabase('clientes', ['cnpj'=>'CNPJ']);
 
         $this->assertTrue(true);
+
+    }
+
+    public function testNovoClienteFormVazio()
+    {
+        $this->visit('/novocliente')
+            ->see('Novo Cliente')
+            ->type('Email2','email')
+            ->press('Registrar');
+        $this->seeInDatabase('clientes', ['email'=>'Email2']);
+//        if ( !$this->seeInDatabase('clientes', ['email'=>'Email']))
+//            $this->assertTrue(true);
     }
 }

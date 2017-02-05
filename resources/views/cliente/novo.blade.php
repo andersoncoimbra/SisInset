@@ -15,7 +15,7 @@
                                 <label for="rsocial" class="col-md-4 control-label">Razão Social</label>
 
                                 <div class="col-md-6">
-                                    <input id="rsocial" type="text" class="form-control" name="rsocial">
+                                    <input id="rsocial" type="text" class="form-control" name="rsocial" required>
 
 
                                 </div>
@@ -98,7 +98,7 @@
                                 <label for="estado" class="col-md-4 control-label">Estados</label>
 
                                 <div class="col-md-6">
-                                    <select id="estado" type="estado" class="form-control" name="estado" >
+                                    <select id="estado" type="estado" class="form-control" name="estado" required >
                                         <option value="">Selecione</option>
                                         <option value="AC">Acre</option>
                                         <option value="AL">Alagoas</option>

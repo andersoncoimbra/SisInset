@@ -8,7 +8,18 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    You are logged in!
+
+                    <div class="panel panel-primary col-md-10">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">Serviços que estão vencendo</div>
+                        <div class="panel-body">
+                        </div>
+                        <!-- Table -->
+                        <table class="table">
+
+                        </table>
+                    </div>
+
                 </div>
             </div>
         </div>
