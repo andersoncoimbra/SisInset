@@ -17,13 +17,11 @@
                             <!-- Table -->
                             <table class="table">
                                 <tr><th>Cliente</th><th>Serviço</th><th>Vencimento</th></tr>
-                                <tr><td>Nome do Cliente 1</td><td>Serviços 1</td><td>Data de Vencimento</td></tr>
-                                <tr><td>Nome do Cliente 2</td><td>Serviços *</td><td>Data de Vencimento</td></tr>
-                                <tr><td>Nome do Cliente 3</td><td>Serviços 8</td><td>Data de Vencimento</td></tr>
-                                <tr><td>Nome do Cliente 7</td><td>Serviços 5</td><td>Data de Vencimento</td></tr>
-                                <tr><td>Nome do Cliente 4</td><td>Serviços 5</td><td>Data de Vencimento</td></tr>
-                                <tr><td>Nome do Cliente 5</td><td>Serviços 4</td><td>Data de Vencimento</td></tr>
-                                <tr><td>Nome do Cliente 1</td><td>Serviços 3</td><td>Data de Vencimento</td></tr>
+                                @forelse($services as $service)
+                                    <tr><td>{{$clientes->find($service->id_cliente)->rsocial}}</td><td>{{$service->service}}</td><td>{{date('d/m/Y', strtotime(str_replace('-','/',$service->vencimento)))}}</td></tr>
+                                @empty
+                                    <tr><td>Sem Registro</td></tr>
+                                @endforelse
                             </table>
                             <div class="panel-footer">
                                 <a href="#"> Mais...</a>
@@ -36,9 +34,9 @@
                             <div class="panel-heading">Menu</div>
                             <div class="panel-body">
                                 <p><a href="/novocliente"><button class="btn btn-primary" >Novo Cliente</button></a></p>
-                                <p><a href="/#"><button>Registrar Serviço</button></a></p>
-                                <p><a href="/#"><button >Registrar Reforço</button></a></p>
-                                <p><a href="/#"><button >Cliente</button></a></p>
+                                <p><a href="/registrarservico"><button class="btn btn-primary">Registrar Serviço</button></a></p>
+                                <p><a href="/#"><button class="btn btn-primary">Registrar Reforço</button></a></p>
+                                <p><a href="/#"><button class="btn btn-primary">Cliente</button></a></p>
 
                             </div>
                         </div>

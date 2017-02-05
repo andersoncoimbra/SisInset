@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cliente;
+use App\Service;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,7 +17,8 @@ class ClienteController extends Controller
     //Função get para Novo cliente
     public function getnovo()
     {
-        return view('cliente.novo');
+        $service = Service::all();
+        return view('cliente.novo', ['services'=> $service]);
     }
 
     public function postnovo(Request $request)

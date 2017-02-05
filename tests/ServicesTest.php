@@ -39,4 +39,18 @@ class ServicesTest extends TestCase
         $this->assertTrue(true);
     }
 
+    public function testServiceForm()
+    {
+        $cliente = new \App\Cliente();
+        $cliente->rsocial = "Razão social do Test";
+        $cliente->save();
+
+        $this->visit('/registrarservico')
+            ->type('Nome Do Serviço','service')
+            ->type('10/10/2016', 'data')
+            ->type('01/02/2017', 'vencimento')
+            ->select( $cliente->id,'cliente')
+            ->press('Registrar');
+    }
+
 }

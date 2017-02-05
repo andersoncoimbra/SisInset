@@ -17,11 +17,15 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', ['uses'=>'HomeController@index', 'as'=>'home']);
 
+//Clientes
 Route::get('/novocliente', ['uses'=>'ClienteController@getnovo', 'as'=>'get.novocliente']);
-
 Route::post('/novocliente', 'ClienteController@postnovo');
+
+//Serviços
+Route::get('/registrarservico', ['uses'=>'ServicesController@getnovo', 'as'=>'get.novoservico']);
+Route::post('/registrarservico', ['uses'=>'ServicesController@postnovo', 'as'=>'post.novoservico']);
 
 
 
