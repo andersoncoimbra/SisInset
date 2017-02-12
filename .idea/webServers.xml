@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0f005aa0-1a6c-45a0-b327-42e6804893c0" name="SisInset" url="http://insetpara.com.br">
+        <fileTransfer host="insetpara.com.br" port="21" rootFolder="/public_html/sisinset" password="dfc9dfcedfcbdf98df98df93dfc8dfcbdfc8dfc9df9bdfcbdf9bdf9fdfccdf9e" username="insetpar">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
