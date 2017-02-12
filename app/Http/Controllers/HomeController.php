@@ -27,8 +27,9 @@ class HomeController extends Controller
     public function index()
     {
 
+
         $clientes = Cliente::all();
-        $service = Service::all();
+        $service = Service::orderBy('vencimento', 'asc')->whereDate('vencimento','>=',date('Y-m-d'))->get();
         return view('home', ['services'=> $service, 'clientes'=>$clientes]);
     }
 }

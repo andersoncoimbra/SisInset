@@ -31,7 +31,7 @@
 
                         <div class="panel-success col-md-6">
                             <!-- Default panel contents -->
-                            <div class="panel-heading">Menu</div>
+                            <div class="panel-heading">Menu hoje </div>
                             <div class="panel-body">
                                 <p><a href="/novocliente"><button class="btn btn-primary" >Novo Cliente</button></a></p>
                                 <p><a href="/registrarservico"><button class="btn btn-primary">Registrar Serviço</button></a></p>
