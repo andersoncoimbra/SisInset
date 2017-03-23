@@ -11,7 +11,7 @@
 
                         <div class="panel-primary col-md-6">
                             <!-- Default panel contents -->
-                            <div class="panel-heading">Serviços que estão vencendo</div>
+                            <div class="panel-heading">Todos os serviços</div>
                             <div class="panel-body">
                             </div>
                             <!-- Table -->
@@ -24,22 +24,11 @@
                                 @endforelse
                             </table>
                             <div class="panel-footer">
-                                <a href="/todosservicos"> Mais...</a>
+                                <span> Total de {{$services->count()}}</span>
                             </div>
 
                         </div>
 
-                        <div class="panel-success col-md-6">
-                            <!-- Default panel contents -->
-                            <div class="panel-heading">Menu</div>
-                            <div class="panel-body">
-                                <p><a href="/novocliente"><button class="btn btn-primary" >Novo Cliente</button></a></p>
-                                <p><a href="/registrarservico"><button class="btn btn-primary">Registrar Serviço</button></a></p>
-                                <p><a href="/#"><button class="btn btn-primary">Registrar Reforço</button></a></p>
-                                <p><a href="/#"><button class="btn btn-primary">Cliente</button></a></p>
-
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

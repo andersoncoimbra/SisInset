@@ -29,4 +29,11 @@ class ServicesController extends Controller
         return redirect()->route('home');
 
     }
+
+    public function todosservicos()
+    {
+        $clientes = Cliente::all();
+        $service = Service::orderBy('vencimento', 'asc')->whereDate('vencimento','<=',date('Y-m-d'))->get();
+        return view('todosservicos', ['services'=> $service, 'clientes'=>$clientes]);
+    }
 }
