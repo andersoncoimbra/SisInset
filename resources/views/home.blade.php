@@ -9,16 +9,16 @@
 
                     <div class="panel-body">
 
-                        <div class="panel-primary col-md-6">
+                        <div class="panel-primary col-md-7">
                             <!-- Default panel contents -->
                             <div class="panel-heading">Serviços que estão vencendo</div>
                             <div class="panel-body">
                             </div>
                             <!-- Table -->
                             <table class="table">
-                                <tr><th>Cliente</th><th>Serviço</th><th>Vencimento</th></tr>
+                                <tr><th>Cliente</th><th>Serviço</th><th>Data</th><th>Vencimento</th></tr>
                                 @forelse($services as $service)
-                                    <tr><td>{{$clientes->find($service->id_cliente)->rsocial}}</td><td>{{$service->service}}</td><td>{{date('d/m/Y', strtotime(str_replace('-','/',$service->vencimento)))}}</td></tr>
+                                    <tr><td>{{$clientes->find($service->id_cliente)->rsocial}}</td><td>{{$service->service}}</td><td>{{date('d/m/Y', strtotime(str_replace('-','/',$service->data)))}}</td><td>{{date('d/m/Y', strtotime(str_replace('-','/',$service->vencimento)))}}</td></tr>
                                 @empty
                                     <tr><td>Sem Registro</td></tr>
                                 @endforelse
@@ -29,7 +29,7 @@
 
                         </div>
 
-                        <div class="panel-success col-md-6">
+                        <div class="panel-success col-md-5">
                             <!-- Default panel contents -->
                             <div class="panel-heading">Menu</div>
                             <div class="panel-body">
