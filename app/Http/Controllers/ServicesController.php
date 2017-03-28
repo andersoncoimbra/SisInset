@@ -36,4 +36,9 @@ class ServicesController extends Controller
         $service = Service::orderBy('vencimento', 'asc')->whereDate('vencimento','<=',date('Y-m-d'))->get();
         return view('todosservicos', ['services'=> $service, 'clientes'=>$clientes]);
     }
+
+    public function deleteservico()
+    {
+        $service = Service::find();
+    }
 }
