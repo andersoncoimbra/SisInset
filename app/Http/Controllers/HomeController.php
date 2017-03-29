@@ -28,8 +28,8 @@ class HomeController extends Controller
     {
 
 
-        $clientes = Cliente::all();
+
         $service = Service::orderBy('vencimento', 'asc')->whereDate('vencimento','>=',date('Y-m-d'))->get();
-        return view('home', ['services'=> $service, 'clientes'=>$clientes]);
+        return view('home', ['services'=> $service]);
     }
 }

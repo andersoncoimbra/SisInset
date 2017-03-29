@@ -5,17 +5,23 @@
     <div class="modal fade modalexcluirservicos" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
         <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">
+
+                <form method="post" action="{{route('delete.servico')}}">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="delete">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">Apaga registro</h4>
                 </div>
                 <div class="modal-body">
-                    <p id="idservice"></p>Tem Ceteza deleta Serviços
+                    Tem Certeza que quer deleta esse Serviços
+                    <input name="idservico" id="idservico" type="hidden">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger">Deletar</button>
+                    <button type="submit" class="btn btn-danger">Deletar</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
@@ -36,7 +42,13 @@
                             <table class="table">
                                 <tr><th>Cliente</th><th>Serviço</th><th>Data</th><th>Vencimento</th><th>Açoes</th></tr>
                                 @forelse($services as $service)
-                                    <tr><td>{{$clientes->find($service->id_cliente)->rsocial}}</td><td>{{$service->service}}</td><td>{{date('d/m/Y', strtotime(str_replace('-','/',$service->data)))}}</td><td>{{date('d/m/Y', strtotime(str_replace('-','/',$service->vencimento)))}}</td><td><i class="fa fa-trash red" aria-hidden="true" onclick="deleteService({{$service->id}})"></i></td></tr>
+                                    <tr>
+                                        <td>{{$service->cliente->rsocial}}</td>
+                                        <td>{{$service->service}}</td>
+                                        <td>{{date('d/m/Y', strtotime(str_replace('-','/',$service->data)))}}</td>
+                                        <td>{{date('d/m/Y', strtotime(str_replace('-','/',$service->vencimento)))}}</td>
+                                        <td><i class="fa fa-trash red" aria-hidden="true" onclick="deleteService({{$service->id}})"></i></td>
+                                    </tr>
                                 @empty
                                     <tr><td>Sem Registro</td></tr>
                                 @endforelse
@@ -70,7 +82,7 @@
         function deleteService(id)
     {
         $('.modalexcluirservicos').modal('show');
-        document.getElementById("idservice").innerHTML = id;
+        document.getElementById("idservico").value = id;
     }
     </script>
 @endsection

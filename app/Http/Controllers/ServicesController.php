@@ -10,6 +10,11 @@ use App\Http\Requests;
 
 class ServicesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function getnovo()
     {
         $clientes = Cliente::all();
@@ -30,15 +35,21 @@ class ServicesController extends Controller
 
     }
 
+    public function deleteservico(Request $request)
+    {
+        //dd($request->all());
+        $service = Service::find($request->idservico);
+        $service->delete();
+        return redirect()->route('home');
+
+    }
     public function todosservicos()
     {
-        $clientes = Cliente::all();
+
         $service = Service::orderBy('vencimento', 'asc')->whereDate('vencimento','<=',date('Y-m-d'))->get();
-        return view('todosservicos', ['services'=> $service, 'clientes'=>$clientes]);
+        //dd($service->first()->cliente->rsocial);
+
+        return view('todosservicos', ['services'=> $service]);
     }
 
-    public function deleteservico()
-    {
-        $service = Service::find();
-    }
 }
