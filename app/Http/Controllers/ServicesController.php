@@ -35,6 +35,25 @@ class ServicesController extends Controller
 
     }
 
+    public function renovar($id)
+    {
+        $service = Service::find($id);
+        return view('cliente.servico.renovar',['service'=>$service]);
+    }
+
+    public function postrenovar($id, Request $request)
+    {
+
+        dd($request);
+        $service = Service::find($id);
+
+        $service->service = $request->service;
+        $service->data = date('Y-m-d', strtotime(str_replace('/','-',$request->data)));
+        $service->vencimento = date('Y-m-d', strtotime(str_replace('/','-',$request->vencimento)));
+        $service->save();
+        return redirect()->route('home');
+    }
+
     public function deleteservico(Request $request)
     {
         //dd($request->all());

@@ -21,9 +21,8 @@
                                             <option value="{{$cliente->id}}">{{$cliente->rsocial}}</option>
                                         @endforeach
                                     </select>
-
-
                                 </div>
+
                             </div>
 
                             <div class="form-group">

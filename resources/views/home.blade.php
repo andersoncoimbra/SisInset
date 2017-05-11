@@ -25,6 +25,17 @@
             </div>
         </div>
     </div>
+    <div class="modal fade modalrenovarservicos" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="renew"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -47,7 +58,8 @@
                                         <td>{{$service->service}}</td>
                                         <td>{{date('d/m/Y', strtotime(str_replace('-','/',$service->data)))}}</td>
                                         <td>{{date('d/m/Y', strtotime(str_replace('-','/',$service->vencimento)))}}</td>
-                                        <td><i class="fa fa-trash red" aria-hidden="true" onclick="deleteService({{$service->id}})"></i></td>
+                                        <td><i class="fa fa-refresh" data-tooltip="tooltip" title="Renovar Serviço" aria-hidden="true" onclick="renovarService({{$service->id}});"></i>
+                                            <i class="fa fa-trash red" data-tooltip="tooltip" title="Excluir Serviço" aria-hidden="true" onclick="deleteService({{$service->id}})"></i></td>
                                     </tr>
                                 @empty
                                     <tr><td>Sem Registro</td></tr>
@@ -78,11 +90,39 @@
 @endsection
 
 @section('scripts')
+
     <script type="text/javascript">
+
+
         function deleteService(id)
     {
         $('.modalexcluirservicos').modal('show');
         document.getElementById("idservico").value = id;
     }
+
+        function renovarService(id)
+        {
+            $.ajax({
+                url: "{{url('/')}}/"+id+"/renovarservico",
+                success: function(result)
+                {
+                $("#renew").html(result);
+                document.getElementById("renew").innerHTML = result
+                }
+            });
+            $("#renew").load()
+
+            $('.modalrenovarservicos').modal('show');
+
+        }
+
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $(document).ready(function(){
+            $('.data').mask('00/00/0000');
+            $('.vencimento').mask('00/00/0000');
+        });
     </script>
 @endsection

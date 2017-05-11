@@ -6,3 +6,4 @@ Homestead.json
 .env
 /.idea/webServers.xml
 /storage/
+.idea/webservers.xml

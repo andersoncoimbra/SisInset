@@ -26,6 +26,10 @@ Route::post('/novocliente', 'ClienteController@postnovo');
 //Serviços
 Route::get('/registrarservico', ['uses'=>'ServicesController@getnovo', 'as'=>'get.novoservico']);
 Route::post('/registrarservico', ['uses'=>'ServicesController@postnovo', 'as'=>'post.novoservico']);
+
+Route::get('/{id}/renovarservico', ['uses'=>'ServicesController@renovar', 'as'=>'get.renovarservico']);
+Route::post('/{id}/renovarservico', ['uses'=>'ServicesController@postrenovar', 'as'=>'post.renovarservico']);
+
 Route::get('/todosservicos', ['uses'=>'ServicesController@todosservicos', 'as'=>'get.todosservico']);
 
 Route::delete('/apagaservico', ['uses'=>'ServicesController@deleteservico', 'as'=>'delete.servico']);
